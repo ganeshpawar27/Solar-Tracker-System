@@ -8,6 +8,8 @@ import ResidentLogin from './components/resident/ResidentLogin';
 import ResidentDashboard from './components/resident/ResidentDashboard';
 import DashboardLayout from './components/resident/DashboardLayout';
 import Profile from './components/resident/Profile';
+import SolarApplication from './components/resident/SolarApplication';
+
 
 import ResidentRegister from './components/resident/ResidentRegister';
 import InstallerLogin from './components/installer/InstallerLogin';
@@ -42,7 +44,7 @@ function App() {
               <Route path="profile" element={<Profile />} />
               
               {/* Ye path /resident-dashboard/apply ban jayega */}
-              {/* <Route path="apply" element={<SolarApplication />} /> */}
+              <Route path="apply" element={<SolarApplication />} />
           </Route>
         </Routes>
       </div>

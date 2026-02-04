@@ -1,13 +1,13 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import api from '../../api/axiosConfig';
 import { useNavigate } from 'react-router-dom';
 
 function SolarApplication() { 
     const [formData, setFormData] = useState({
         capacitykw: '',   // Matches DB column
-        system_type: 'On-Grid', // Default value
+        systemType: 'On-Grid', // Default value
         address: '',      // Optional but good for UI
-        mobile: ''
+       
     });
 
     const navigate = useNavigate();
@@ -17,11 +17,11 @@ function SolarApplication() {
 
 
         const handleSubmit=async(e)=>{
-        e.prevenntDefault();
+        e.preventDefault();
         try{
             const payload={
                 capacitykw:parseFloat(formData.capacitykw),
-                system_type:formData.system_type,
+                systemType:formData.systemType,
                 status:"Pending",
                 request_date: new Date().toISOString().split('T')[0], // YYYY-MM-DD format
                 // Foreign Key ke liye object bhej rahe hain
@@ -58,7 +58,7 @@ function SolarApplication() {
                     <label>System Type:</label>
                     <select
                     style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-                    onChange={(e) => setFormData({...formData, system_type: e.target.value})}>
+                    onChange={(e) => setFormData({...formData, systemType: e.target.value})}>
                         <option value="On-Grid">On-Grid</option>
                         <option value="Off-Grid">Off-Grid</option>
                         <option value="Hybrid">Hybrid</option>
@@ -73,16 +73,7 @@ function SolarApplication() {
                         style={{ width: '100%', padding: '8px', marginTop: '5px', height: '80px' }}
                     />
                 </div>
-                <div style={{ marginBottom: '20px' }}>
-                    <label>Mobile Number:</label>
-                    <input 
-                        type="text" 
-                        required 
-                        placeholder="10 digit number"
-                        onChange={(e) => setFormData({...formData, mobile: e.target.value})}
-                        style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-                    />
-                </div>
+               
                 <button type="submit" style={{ width: '100%', padding: '12px', background: 'green', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>
                     Submit Application
                 </button>
