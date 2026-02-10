@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 // Components
 import AdminLogin from './components/admin/AdminLogin';
-import AdminDashboard from './components/admin/AdminDashboard';
+import AdminDashboard from './components/admin/adminDashboard';
 import ResidentLogin from './components/resident/ResidentLogin';
 import ResidentDashboard from './components/resident/ResidentDashboard';
 import DashboardLayout from './components/resident/DashboardLayout';
