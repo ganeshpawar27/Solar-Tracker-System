@@ -1,7 +1,8 @@
 import React ,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from '../../api/axiosConfig';
-
+import ResidentsTable from './ResidentsTable';
+import InstallersTable from './InstallersTable';
 
 
 function adminDashboard1() {
@@ -75,67 +76,18 @@ function adminDashboard1() {
         
 
          {/* Residents Table */}
-         {view==="residents" && (
-             <table>
-            <thead>
-                <tr>
-                    <th>Contact Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>aadhaar</th>
-                </tr>
-            </thead>
-            <tbody>
-            {residents.map((i)=>(
-                <tr key={i.contactId}>
-                    <td>{i.contactId}</td>
-                    <td>{i.name}</td>
-                    <td>{i.email}</td>
-                    <td>{i.aadhaar}</td>
-                </tr>
-            ))}
-            </tbody>
-         </table>)
+         {view==="residents" && <ResidentsTable data={residents} />
     }
     </div>
         
             {/* installers Table */}
             {view ==='installers' && (
-                
-                <div>
-                    <button onClick={()=>navigate("/installer-register")} >Add Instaler</button>
-                
-                
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Contact Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>License No</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {installers.map((i)=>(
-                            <tr key={i.contactId}>
-                                <td>{i.contactId}</td>
-                                    <td>{i.name}</td>
-                                    <td>{i.email}</td>
-                                    <td>{i.licenseNo}</td>
-                                    <td>
-                                        <button onClick={()=>openEditModel(i)}>Edit</button>
-                                        <button onClick={()=>handleDelete(i.contactId)}>Delete</button>
-                                    </td>
-                            </tr>
-                        ))}
-                    </tbody>
-
-                </table>
-            </div>    
-            
-            
-            )}
+            <InstallersTable 
+                data={installers} 
+                onDelete={handleDelete} 
+                onEdit={openEditModel} 
+                onAddClick={() => navigate("/installer-register")}
+            />)}
 
     </div>
       {/* 🛠️ EDIT MODAL (POPUP) */}
