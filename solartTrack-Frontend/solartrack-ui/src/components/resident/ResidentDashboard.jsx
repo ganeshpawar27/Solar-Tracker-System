@@ -31,7 +31,7 @@ function ResidentDashboard() {
             <p>Yahan tumhari saari solar applications ka status dikhega.</p>
             
             <table border="1" style={{ width: '100%', marginTop: '20px', borderCollapse: 'collapse' }}>
-                <thead style={{ backgroundColor: '#f4f4f4' }}>
+                <thead style={{ backgroundColor: '' }}>
                     <tr>
                         <th style={{ padding: '10px' }}>ID</th>
                         <th>Capacity (KW)</th>

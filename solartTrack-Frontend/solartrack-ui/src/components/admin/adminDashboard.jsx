@@ -56,7 +56,7 @@ function adminDashboard1() {
             await api.put(`/installers/update/${selectedInstaller.contactId}`,selectedInstaller)
              alert("Installer updated successfully! ✅");
             setShowModel(false);
-            loadData(); // Table refresh
+            loadData(); 
         }catch(e){
             console.error(e);
         }
@@ -68,6 +68,7 @@ function adminDashboard1() {
       <div>
          <button onClick={()=>setView('residents') }>show Residets  ({residents.length})</button>
         <button onClick={()=>setView('installers') }>show Installers  ({installers.length})</button>
+        <button>Installation Requests</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
     <div>
