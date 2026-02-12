@@ -1,87 +1,81 @@
-import React ,{useState} from 'react'
+import React, { useState } from 'react';
 import api from '../../api/axiosConfig';
 import { useNavigate } from 'react-router-dom';
 
 function SolarApplication() { 
     const [formData, setFormData] = useState({
-        capacitykw: '',   // Matches DB column
-        systemType: 'On-Grid', // Default value
-        address: '',      // Optional but good for UI
-       
+        capacitykw: '', 
+        systemType: 'On-Grid'
     });
 
     const navigate = useNavigate();
-
-    // imp after login to save userID
     const residentId = localStorage.getItem('userId');
 
-
-        const handleSubmit=async(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            const payload={
-                capacitykw:parseFloat(formData.capacitykw),
-                systemType:formData.systemType,
-                status:"Pending",
-                request_date: new Date().toISOString().split('T')[0], // YYYY-MM-DD format
-                // Foreign Key ke liye object bhej rahe hain
+        try {
+            const payload = {
+                capacitykw: parseFloat(formData.capacitykw),
+                systemType: formData.systemType,
+                status: "Pending",
+                request_date: new Date().toISOString().split('T')[0],
                 resident: { contactId: parseInt(residentId) }
+            };
 
-            }
-            await api.post("/requests/apply",payload);
+            await api.post("/requests/apply", payload);
             alert("Bhai, Application Submit Ho Gayi! ☀️");
             navigate('/resident-dashboard');
             
-        }catch (error) {
+        } catch (error) {
             console.error("Error submitting form:", error);
-            alert("Application fail ho gayi! Backend ya Database check karo.");
+            alert("Application fail ho gayi! Backend check karo.");
         }
-
     };
-  return (
-    <>
-    <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '10px' }}>
-            <h2 style={{ textAlign: 'center' }}>☀️ Solar Installation Form</h2>
+
+    return (
+        <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px', maxWidth: '400px', margin: '40px auto', border: '1px solid #ddd', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+            <h2 style={{ textAlign: 'center', color: '#2c3e50' }}>Solar Installation</h2>
             <form onSubmit={handleSubmit}>
+                
+                {/* Capacity Field */}
                 <div style={{ marginBottom: '15px' }}>
-                    <label>Capacity Required (KW):</label>
+                    <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Capacity (KW):</label>
                     <input 
                         type="number" 
                         step="0.1"
                         required 
-                        placeholder="e.g. 3.5"
+                        placeholder="Enter KW (e.g. 3.0)"
+                        value={formData.capacitykw}
                         onChange={(e) => setFormData({...formData, capacitykw: e.target.value})}
-                        style={{ width: '100%', padding: '8px', marginTop: '5px' }}
+                        style={{ width: '100%', padding: '10px', borderRadius: '4px', border: '1px solid #ccc', boxSizing: 'border-box' }}
                     />
                 </div>
-                <div style={{ marginBottom: '15px' }}>
-                    <label>System Type:</label>
+
+                {/* System Type Field */}
+                <div style={{ marginBottom: '20px' }}>
+                    <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>System Type:</label>
                     <select
-                    style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-                    onChange={(e) => setFormData({...formData, systemType: e.target.value})}>
+                        value={formData.systemType}
+                        onChange={(e) => setFormData({...formData, systemType: e.target.value})}
+                        style={{ width: '100%', padding: '10px', borderRadius: '4px', border: '1px solid #ccc', backgroundColor: 'black' }}
+                    >
                         <option value="On-Grid">On-Grid</option>
                         <option value="Off-Grid">Off-Grid</option>
                         <option value="Hybrid">Hybrid</option>
                     </select>
                 </div>
-                <div style={{ marginBottom: '15px' }}>
-                    <label>Installation Address:</label>
-                    <textarea 
-                        required 
-                        placeholder="fill the address"
-                        onChange={(e) => setFormData({...formData, address: e.target.value})}
-                        style={{ width: '100%', padding: '8px', marginTop: '5px', height: '80px' }}
-                    />
-                </div>
-               
-                <button type="submit" style={{ width: '100%', padding: '12px', background: 'green', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>
+
+                {/* Submit Button */}
+                <button 
+                    type="submit" 
+                    style={{ width: '100%', padding: '12px', backgroundColor: '#27ae60', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '16px', fontWeight: 'bold' }}
+                >
                     Submit Application
                 </button>
 
-    </form>
-    </div>
-    </>
-  )
+            </form>
+        </div>
+    );
 }
 
-export default SolarApplication
+export default SolarApplication;
