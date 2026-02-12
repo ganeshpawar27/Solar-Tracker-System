@@ -3,12 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import api from '../../api/axiosConfig';
 import ResidentsTable from './ResidentsTable';
 import InstallersTable from './InstallersTable';
+import PendingRequests from './PendingRequests';
+
 
 
 function adminDashboard1() {
     const [view , setView]=useState('residents')
     const[residents,setResidents]=useState([])
     const [installers,setInstallers]=useState([])
+     const [requests,setRequests]=useState([])
     const [selectedInstaller,setSelectedInstaller]=useState(null)
     const [showModel,setShowModel]=useState(false)
     const navigate=useNavigate();
@@ -25,8 +28,10 @@ function adminDashboard1() {
     const loadData=async()=>{
        try{ const resData=await api.get("/residents/all");
         const instData=await api.get("/installers/all");
+        const reqData=await api.get("/requests/all");
         setResidents(resData.data);
         setInstallers(instData.data)
+        setRequests(reqData)
     }catch(error){
         console.error(error);
         alert("data not found");
@@ -64,21 +69,20 @@ function adminDashboard1() {
     }
  
   return (
-    <div>
+    
     <div>
       <div>
          <button onClick={()=>setView('residents') }>show Residets  ({residents.length})</button>
         <button onClick={()=>setView('installers') }>show Installers  ({installers.length})</button>
-        <button>Installation Requests</button>
+        <button onClick={()=>setView('requests')}>Installation Requests {(requests.length)} </button>
         <button onClick={handleLogout}>Logout</button>
       </div>
+         
     <div>
         
 
          {/* Residents Table */}
-         {view==="residents" && <ResidentsTable data={residents} />
-    }
-    </div>
+         {view==="residents" && <ResidentsTable data={residents} />}
         
             {/* installers Table */}
             {view ==='installers' && (
@@ -89,6 +93,21 @@ function adminDashboard1() {
                 onAddClick={() => navigate("/installer-register")}
             />)}
 
+ {/*  Solar Request Table */}
+       {view === "requests" && (
+    <div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h2>Solar Installation Requests</h2>
+            <button onClick={loadData} style={{ padding: '5px 10px', cursor: 'pointer' }}>
+                Refresh List 🔄
+            </button>
+        </div>
+        <hr />
+        
+        {/* Humne jo component banaya hai usey yahan render karenge */}
+        <PendingRequests />
+    </div>
+)}
     </div>
       {/* 🛠️ EDIT MODAL (POPUP) */}
             {showModel && selectedInstaller && (
@@ -125,7 +144,7 @@ function adminDashboard1() {
                 </div>
             )}
     </div>
-    
+
   )
 }
 
