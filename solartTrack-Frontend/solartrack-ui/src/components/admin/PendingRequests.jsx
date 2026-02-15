@@ -60,13 +60,13 @@ function PendingRequests() {
                                 <td>{req.status}</td>
                                 <td>
                                     <button 
-                                        onClick={() => updateStatus(req.requestId, 'Approved')}
+                                        onClick={() => updateStatus(req.id, 'Approved')}
                                         style={{ backgroundColor: 'green', color: 'white', marginRight: '5px' }}
                                     >
                                         Approve
                                     </button>
                                     <button 
-                                        onClick={() => updateStatus(req.requestId, 'Rejected')}
+                                        onClick={() => updateStatus(req.id, 'Rejected')}
                                         style={{ backgroundColor: 'red', color: 'white' }}
                                     >
                                         Reject

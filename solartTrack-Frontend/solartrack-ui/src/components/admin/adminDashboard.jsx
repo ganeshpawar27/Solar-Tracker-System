@@ -4,7 +4,7 @@ import api from '../../api/axiosConfig';
 import ResidentsTable from './ResidentsTable';
 import InstallersTable from './InstallersTable';
 import PendingRequests from './PendingRequests';
-
+import AssignToInstaller from './AssignToInstaller';
 
 
 function adminDashboard1() {
@@ -68,13 +68,14 @@ function adminDashboard1() {
         }
     }
  
-  return (
     
+    return (
     <div>
       <div>
          <button onClick={()=>setView('residents') }>show Residets  ({residents.length})</button>
         <button onClick={()=>setView('installers') }>show Installers  ({installers.length})</button>
-        <button onClick={()=>setView('requests')}>Installation Requests {(requests.length)} </button>
+        <button onClick={()=>setView('requests')}>Installation Requests</button>
+        <button onClick={()=>setView('assignToInstaller')}>Asssign to Installation</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
          
@@ -93,9 +94,9 @@ function adminDashboard1() {
                 onAddClick={() => navigate("/installer-register")}
             />)}
 
- {/*  Solar Request Table */}
+        {/*  Solar Request Table */}
        {view === "requests" && (
-    <div>
+         <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h2>Solar Installation Requests</h2>
             <button onClick={loadData} style={{ padding: '5px 10px', cursor: 'pointer' }}>
@@ -108,6 +109,8 @@ function adminDashboard1() {
         <PendingRequests />
     </div>
 )}
+
+        {view === "assignToInstaller" && <AssignToInstaller/>}
     </div>
       {/* 🛠️ EDIT MODAL (POPUP) */}
             {showModel && selectedInstaller && (
@@ -144,8 +147,7 @@ function adminDashboard1() {
                 </div>
             )}
     </div>
-
-  )
+    )
 }
 
 export default adminDashboard1
