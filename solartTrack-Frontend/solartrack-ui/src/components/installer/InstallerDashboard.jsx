@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import api from '../../api/axiosConfig';
 import InstallerProfile from './InstallerProfile'
+import InstallerAssignRequest from './InstallerAssignRequest';
 
 function InstallerDashboard() {
     const [view ,setView]=useState([]);
@@ -25,10 +26,12 @@ function InstallerDashboard() {
    <>
     <div>
       <button onClick={()=>setView("InstallerProfile")}>Profile</button>
+      <button onClick={()=>setView("InstallerAssignRequest")}>Assign Requests</button>
     </div>
 
     <div>
         {view === "InstallerProfile" && (<InstallerProfile/>)}
+        {view === "InstallerAssignRequest" && (<InstallerAssignRequest/>)}
             
        
     </div>
