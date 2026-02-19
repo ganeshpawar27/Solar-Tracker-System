@@ -22,7 +22,8 @@ function Profile() {
    const handleEdit = async () => {
     try {
         await api.put(`/residents/update/${selectedResident.contactId}`, selectedResident);
-    
+        
+        
         localStorage.setItem('userName', selectedResident.name);
         localStorage.setItem('userEmail', selectedResident.email);
         

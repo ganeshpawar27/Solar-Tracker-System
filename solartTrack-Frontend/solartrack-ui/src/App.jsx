@@ -14,7 +14,7 @@ import SolarApplication from './components/resident/SolarApplication';
 import ResidentRegister from './components/resident/ResidentRegister';
 import InstallerLogin from './components/installer/InstallerLogin';
 import InstallerRegister from './components/installer/InstallerRegister';
-
+import InstallerDashboard from './components/installer/InstallerDashboard';
 import './App.css';
 
 function App() {
@@ -45,7 +45,9 @@ function App() {
               
               {/* Ye path /resident-dashboard/apply ban jayega */}
               <Route path="apply" element={<SolarApplication />} />
+
           </Route>
+            <Route path="/installer-dashboard" element={<InstallerDashboard/>}></Route>
         </Routes>
       </div>
     </>

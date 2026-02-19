@@ -1,11 +1,13 @@
 import {React,useState} from 'react'
 import api from '../../api/axiosConfig'; // Hamara axios setup
-
+import { useNavigate } from 'react-router-dom';
 function InstallerLogin() {
     const[loginData,setLoginData]=useState({
         contactId :'',
         password : ''
     })
+
+    const navigate=useNavigate()
 
     const handleChange=(e)=>{
         e.preventDefault();
@@ -18,8 +20,14 @@ function InstallerLogin() {
         e.preventDefault();
         try{
             const response=await api.post('/installers/login',loginData);
+            localStorage.setItem('installerId',response.data.contactId);
+            localStorage.setItem('installerName',response.data.name)
+            localStorage.setItem('installerEmail',response.data.email);
+            localStorage.setItem('licenseNo',response.data.licenseNo);
+            localStorage.setItem('installerRole', 'INSTALLER');           // Role set kiya
             if (response.status===200) {
                 alert("installer LoggIn Successful")
+                navigate("/installer-dashboard")
                 
             }
         }
