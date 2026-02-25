@@ -57,7 +57,11 @@ function ResidentLogin() {
                 />
                 <br /><br />
                 <button type="submit">Resident Login</button>
+
             </form>
+
+                <button onClick={()=>navigate('/')}>Back To menu</button>
+                <button onClick={()=>navigate('/register')}>dont have account?</button>
         </div>
     );
 }

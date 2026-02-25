@@ -33,6 +33,7 @@ function AdminLogin() {
             <br /><br />
             <button type='submit'>LogIn</button>
         </form>
+            <button onClick={()=>navigate('/')}>Back To menu</button>
     </div>
    </>
   )

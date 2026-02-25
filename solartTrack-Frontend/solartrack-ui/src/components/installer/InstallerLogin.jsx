@@ -55,7 +55,10 @@ function InstallerLogin() {
                 />
                 <br /><br />
                 <button type="submit">Insaller Login</button>
+                
+
             </form>
+                <button onClick={()=>navigate('/')}>Back To menu</button>
    </>
   )
 }

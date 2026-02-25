@@ -16,6 +16,7 @@ import InstallerLogin from './components/installer/InstallerLogin';
 import InstallerRegister from './components/installer/InstallerRegister';
 import InstallerDashboard from './components/installer/InstallerDashboard';
 import './App.css';
+import EntryPage from './components/EntryPage';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       <div>
         <Routes>
           {/* Resident Routes */}
-          <Route path="/" element={<ResidentLogin />} />
+          <Route path="/" element={<EntryPage />} />
+          <Route path="/resident" element={<ResidentLogin />} />
           <Route path="/register" element={<ResidentRegister />} />
           
           {/* Admin Routes */}
