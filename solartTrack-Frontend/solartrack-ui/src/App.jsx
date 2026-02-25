@@ -21,8 +21,7 @@ import EntryPage from './components/EntryPage';
 function App() {
   return (
     <>
-      <h1 style={{ textAlign: 'center' }}>Solar Tracker System</h1>
-      <div>
+          <div>
         <Routes>
           {/* Resident Routes */}
           <Route path="/" element={<EntryPage />} />
