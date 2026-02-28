@@ -64,7 +64,7 @@ function InstallerLogin() {
                     
                     {/* Header with Agency-Themed Gradient */}
                     <div className="bg-gradient-to-r from-slate-900/80 to-emerald-800/80 p-8 text-center border-b border-white/10">
-                        <h2 className="text-white text-3xl font-black tracking-tight">Agency Portal</h2>
+                        <h2 className="text-white text-3xl font-black tracking-tight">Installer Portal</h2>
                         <p className="text-emerald-400 text-xs mt-1 font-bold uppercase tracking-widest">
                             Authorized Installer Access
                         </p>
@@ -74,7 +74,7 @@ function InstallerLogin() {
                     <form onSubmit={handleLogin} className="p-8 space-y-5">
                         <div>
                             <label className="block text-xs font-bold text-emerald-500 uppercase tracking-wider mb-2">
-                                Agency Contact ID
+                                Installer Contact
                             </label>
                             <input 
                                 name="contactId" 
@@ -120,9 +120,7 @@ function InstallerLogin() {
                     </div>
                 </div>
                 
-                <p className="text-center mt-6 text-gray-500 text-[10px] uppercase tracking-[0.2em]">
-                    Department of Renewable Energy | Verification Required
-                </p>
+                
             </div>
         </div>
     );

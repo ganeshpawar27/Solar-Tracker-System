@@ -47,14 +47,14 @@ function EntryPage() {
             onClick={() => navigate('/resident')}
             className="flex flex-col items-center justify-center p-8 bg-white/10 border border-white/20 rounded-2xl hover:bg-yellow-800 transition-all hover:scale-105"
           >
-            <span className="text-white font-bold text-lg">Resident Login</span>
+            <span className="text-white font-bold text-lg">Resident Portal</span>
           </button>
 
           <button 
             onClick={() => navigate('/installer')}
             className="flex flex-col items-center justify-center p-8 bg-white/10 border border-white/20 rounded-2xl hover:bg-emerald-800 transition-all hover:scale-105"
           >
-            <span className="text-white font-bold">Installer Agency</span>
+            <span className="text-white font-bold">Installer Portal</span>
           </button>
         </div>
       </div>
