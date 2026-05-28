@@ -18,7 +18,7 @@ import com.solartrack.service.RequestService;
 
 @RestController
 @RequestMapping("/api/requests")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://solar-tracker-frontend.onrender.com")
 public class RequestController {
 	@Autowired
 	 private RequestService requestService;

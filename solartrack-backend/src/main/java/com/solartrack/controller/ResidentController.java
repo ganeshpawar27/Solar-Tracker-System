@@ -19,7 +19,7 @@ import com.solartrack.service.ResidentService;
 
 @RestController
 @RequestMapping("/api/residents")
-@CrossOrigin(origins = "http://localhost:5173") // React ke liye rasta saaf
+@CrossOrigin(origins = "https://solar-tracker-frontend.onrender.com") // React ke liye rasta saaf
 public class ResidentController {
 	@Autowired
 	private ResidentService residentService;
