@@ -9,9 +9,8 @@ FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-# 🌟 रेंडर केVariables को Docker कंटेनर के अंदर पास करना (इसे जोड़ें)
-ENV SPRING_DATASOURCE_URL=$SPRING_DATASOURCE_URL
-ENV SPRING_DATASOURCE_USERNAME=$SPRING_DATASOURCE_USERNAME
+# 🌟 रेंडर के आर्गुमेंट्स को स्प्रिंग बूट के एनवायरनमेंट में इंजेक्ट करना
+ARG SPRING_DATASOURCE_PASSWORD
 ENV SPRING_DATASOURCE_PASSWORD=$SPRING_DATASOURCE_PASSWORD
 ENV PORT=8080
 
