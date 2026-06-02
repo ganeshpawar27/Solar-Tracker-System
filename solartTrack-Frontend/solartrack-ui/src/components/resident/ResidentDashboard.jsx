@@ -9,7 +9,7 @@ function ResidentDashboard() {
     useEffect(() => {
         const fetchMyData = async () => {
             try {
-                const res = await api.get(`/resident/${residentId}`);
+                const res = await api.get(`/requests/resident/${residentId}`);
                 // Ensure data is always an array for mapping
                 const data = Array.isArray(res.data) ? res.data : (res.data ? [res.data] : []);
                 setRequests(data);
