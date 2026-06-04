@@ -3,7 +3,7 @@ import api from '../../api/axiosConfig';
 import { useNavigate } from 'react-router-dom';
 // Ensure the path correctly points to your assets folder
 import solarVideo from '../../assets/solar.mp4'; 
-import Swal from 'sweetalert2';
+
 function ResidentLogin() {
     const [loginData, setLoginData] = useState({
         contactId: '',
@@ -30,13 +30,7 @@ function ResidentLogin() {
                 localStorage.setItem('userEmail', response.data.email);
                 localStorage.setItem('userRole', 'RESIDENT');
 
-                Swal.fire({
-                title: 'Login Successful!',
-                text: `Welcome, ${userName || 'Citizen'} ☀️`,
-                icon: 'success',
-                confirmButtonColor: '#059669', // Emerald green custom color matching your UI
-                confirmButtonText: 'OK'
-                });
+                alert("Bhai, Login Successful! Welcome " + response.data.name);
                 navigate('/resident-dashboard'); 
             }
         } catch (error) {
