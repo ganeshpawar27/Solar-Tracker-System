@@ -14,7 +14,7 @@ function PendingRequests() {
             setRequests(res.data);
         } catch (err) {
             console.error("Error loading pending requests", err);
-            alert("Requests load nahi ho payi!");
+            alert("No Request Found!");
         }
     };
 
@@ -25,7 +25,7 @@ function PendingRequests() {
             loadPending(); 
         } catch (err) {
             console.error("Update error", err);
-            alert("Status update fail ho gaya!");
+            alert("Status Update Failed!");
         }
     };
 

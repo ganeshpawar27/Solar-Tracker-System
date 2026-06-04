@@ -9,7 +9,7 @@ import Help from './Help'; // Import the Help component
 
 function adminDashboard1() {
     // State management for view switching and data
-    const [view, setView] = useState('residents');
+    const [view, setView] = useState('help');
     const [residents, setResidents] = useState([]);
     const [installers, setInstallers] = useState([]);
     const [requests, setRequests] = useState([]);
