@@ -70,7 +70,7 @@ function AssignToInstaller() {
                                     <td className="px-6 py-4 text-sm font-bold text-gray-700">{req.resident?.name || "N/A"}</td>
                                     <td className="px-6 py-4">
                                         <span className="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-xs font-bold border border-amber-100">
-                                            {req.capacityKw} KW
+                                            {req.capacityKW} KW
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-right">

@@ -70,7 +70,7 @@ function ResidentDashboard() {
                                             </td>
                                             <td className="px-8 py-6">
                                                 <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">
-                                                    {r.capacityKw} KW
+                                                    {r.capacityKW} KW
                                                 </span>
                                             </td>
                                             <td className="px-8 py-6 text-center">

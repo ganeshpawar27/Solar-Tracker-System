@@ -60,7 +60,7 @@ function PendingRequests() {
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">
-                                            {req.capacityKw} KW
+                                            {req.capacityKW} KW
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-sm text-gray-600 font-medium">
