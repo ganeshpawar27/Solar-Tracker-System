@@ -66,11 +66,11 @@ function AssignToInstaller() {
                         {requests.length > 0 ? (
                             requests.map((req) => (
                                 <tr key={req.id} className="hover:bg-blue-50/20 transition-colors">
-                                    <td className="px-6 py-4 text-sm font-mono text-blue-600 font-medium">#{req.id}</td>
+                                    <td className="px-6 py-4 text-sm font-mono text-blue-600 font-medium">{req.id}</td>
                                     <td className="px-6 py-4 text-sm font-bold text-gray-700">{req.resident?.name || "N/A"}</td>
                                     <td className="px-6 py-4">
                                         <span className="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-xs font-bold border border-amber-100">
-                                            {req.capacitykw} KW
+                                            {req.capacityKw} KW
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-right">
@@ -100,7 +100,7 @@ function AssignToInstaller() {
                     <div className="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden animate-in zoom-in duration-300">
                         {/* Modal Header */}
                         <div className="p-6 bg-gray-50 border-b border-gray-100">
-                            <h4 className="text-lg font-bold text-gray-800">Assign Request #{selectedRequestId}</h4>
+                            <h4 className="text-lg font-bold text-gray-800">Assign Request {selectedRequestId}</h4>
                             <p className="text-xs text-gray-400 uppercase font-bold tracking-widest mt-1">Select Service Agency</p>
                         </div>
                         

@@ -54,13 +54,13 @@ function PendingRequests() {
                         {requests.length > 0 ? (
                             requests.map((req) => (
                                 <tr key={req.id} className="hover:bg-blue-50/20 transition-colors group">
-                                    <td className="px-6 py-4 text-sm font-mono text-gray-400 text-center">#{req.id}</td>
+                                    <td className="px-6 py-4 text-sm font-mono text-gray-400 text-center">{req.id}</td>
                                     <td className="px-6 py-4 text-sm font-bold text-gray-700">
                                         {req.resident?.name || "Unknown Resident"}
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">
-                                            {req.capacitykw} KW
+                                            {req.capacityKw} KW
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-sm text-gray-600 font-medium">

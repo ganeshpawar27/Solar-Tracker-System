@@ -39,7 +39,7 @@ const InstallersTable = ({ data, onDelete, onEdit, onAddClick }) => {
                                     className="hover:bg-slate-50 transition-colors group"
                                 >
                                     <td className="px-6 py-4 text-sm font-mono text-blue-600 font-medium">
-                                        #{installer.contactId}
+                                        {installer.contactId}
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="text-sm font-bold text-gray-700">{installer.name}</div>
