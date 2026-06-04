@@ -75,7 +75,7 @@ function InstallerProfile() {
 
                     <div className="space-y-1">
                         <p className="text-xs font-bold text-emerald-600 uppercase tracking-wider">Installer ID</p>
-                        <p className="text-lg font-mono font-bold text-gray-800">#{installer.contactId}</p>
+                        <p className="text-lg font-mono font-bold text-gray-800">{installer.contactId}</p>
                     </div>
 
                     <div className="space-y-1">

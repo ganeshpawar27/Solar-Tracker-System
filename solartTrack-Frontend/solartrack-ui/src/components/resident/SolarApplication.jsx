@@ -24,12 +24,12 @@ function SolarApplication() {
             };
 
             await api.post("/requests/apply", payload);
-            alert("Bhai, Application Submit Ho Gayi! ☀️");
+            alert("Application Submited ☀️");
             navigate('/resident-dashboard');
             
         } catch (error) {
             console.error("Error submitting form:", error);
-            alert("Application fail ho gayi! Backend check karo.");
+            alert("Application Failed to submit!");
         }
     };
 

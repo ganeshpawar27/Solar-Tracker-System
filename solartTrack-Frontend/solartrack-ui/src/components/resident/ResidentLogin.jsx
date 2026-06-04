@@ -30,11 +30,11 @@ function ResidentLogin() {
                 localStorage.setItem('userEmail', response.data.email);
                 localStorage.setItem('userRole', 'RESIDENT');
 
-                alert("Bhai, Login Successful! Welcome " + response.data.name);
+                alert("Login Successful! Welcome " + response.data.name);
                 navigate('/resident-dashboard'); 
             }
         } catch (error) {
-            alert("Login Fail! Contact ID ya Password galat hai.");
+            alert("Invalid Credentials");
             console.error(error);
         }
     };

@@ -35,7 +35,7 @@ function InstallerLogin() {
                 navigate("/installer-dashboard");
             }
         } catch (error) {
-            alert("Installer failed to Login. Please check Contact ID or Password.");
+            alert("Wrong Credentials");
             console.error(error);
         }
     };

@@ -15,7 +15,7 @@ function AdminLogin() {
       alert("Admin logged in successfully!");
       navigate('/admin-dashboard');
     } else {
-      alert("Invalid Credentials");
+      alert("Wrong Credentials");
     }
   };
 

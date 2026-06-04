@@ -82,16 +82,16 @@ function InstallerAssignRequest() {
                         <tbody className="divide-y divide-gray-50">
                             {requests.map((re) => (
                                 <tr key={re.id} className="hover:bg-emerald-50/20 transition-colors">
-                                    <td className="px-6 py-4 text-sm font-mono text-emerald-600 font-bold">#{re.id}</td>
+                                    <td className="px-6 py-4 text-sm font-mono text-emerald-600 font-bold">{re.id}</td>
                                     
                                     {/* FIX 2: Accessing the ID inside the resident object */}
                                     <td className="px-6 py-4 text-sm font-bold text-gray-700">
-                                        #{re.resident?.contactId || "N/A"}
+                                        {re.resident?.contactId || "N/A"}
                                     </td>
 
                                     <td className="px-6 py-4">
                                         <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">
-                                            {re.capacitykw} KW
+                                            {re.capacityKW} KW
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 text-center">

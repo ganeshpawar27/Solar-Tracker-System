@@ -26,12 +26,12 @@ function ResidentRegister() {
             // Backend endpoint: /api/residents/register
             const response = await api.post('/residents/register', formData);
             if (response.status === 200 || response.status === 201) {
-                alert("Bhai, resident Registration Ho Gaya! Ab login kar lo.");
+                alert("Resident Register Successfully");
                 navigate('/'); // Redirect to Login
             }
         } catch (error) {
             console.error(error);
-            alert("Kuch toh gadbad hai! Check fields.");
+            alert("Error! Check Feilds");
         }
     };
 
