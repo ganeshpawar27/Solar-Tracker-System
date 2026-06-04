@@ -1,7 +1,16 @@
 package com.solartrack.model;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 
 @Entity
@@ -19,6 +28,7 @@ public class InstallationRequest {
     private Resident resident;
 
     private String systemType; // e.g., On-grid, Off-grid
+	@JsonProperty("capacityKW")
     private Double capacityKW;
     private LocalDate requestDate;
     private String status; // Pending, Approved, Rejected
