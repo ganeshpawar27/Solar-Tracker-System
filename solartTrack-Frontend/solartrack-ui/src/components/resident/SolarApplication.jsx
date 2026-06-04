@@ -16,7 +16,7 @@ function SolarApplication() {
         e.preventDefault();
         try {
             const payload = {
-                capacitykw: parseFloat(formData.capacitykw),
+                capacityKW: parseFloat(formData.capacitykw),
                 systemType: formData.systemType,
                 status: "Pending",
                 request_date: new Date().toISOString().split('T')[0],
