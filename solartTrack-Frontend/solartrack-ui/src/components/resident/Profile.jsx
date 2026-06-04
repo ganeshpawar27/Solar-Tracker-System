@@ -71,7 +71,7 @@ function Profile() {
 
                     <div className="space-y-1">
                         <p className="text-xs font-bold text-blue-600 uppercase tracking-wider">Contact ID</p>
-                        <p className="text-lg font-mono font-bold text-gray-800">#{user.contactId}</p>
+                        <p className="text-lg font-mono font-bold text-gray-800">{user.contactId}</p>
                     </div>
 
                     <div className="space-y-1">

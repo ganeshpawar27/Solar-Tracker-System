@@ -60,7 +60,7 @@ function ResidentDashboard() {
                                     requests.map((r) => (
                                         <tr key={r.id} className="hover:bg-blue-50/20 transition-colors group">
                                             <td className="px-8 py-6 text-sm font-mono text-blue-600 font-bold">
-                                                #{r.id}
+                                                {r.id}
                                             </td>
                                             <td className="px-8 py-6">
                                                 <div className="text-sm font-bold text-gray-800 uppercase tracking-tight">
@@ -70,7 +70,7 @@ function ResidentDashboard() {
                                             </td>
                                             <td className="px-8 py-6">
                                                 <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">
-                                                    {r.capacitykw} KW
+                                                    {r.capacityKw} KW
                                                 </span>
                                             </td>
                                             <td className="px-8 py-6 text-center">
