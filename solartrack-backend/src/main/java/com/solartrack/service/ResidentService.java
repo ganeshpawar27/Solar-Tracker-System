@@ -3,7 +3,9 @@ package com.solartrack.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.solartrack.SolartrackBackendApplication;
 import com.solartrack.model.Resident;
 import com.solartrack.repository.ResidentRepository;
@@ -13,8 +15,11 @@ public class ResidentService {
 
     private final SolartrackBackendApplication solartrackBackendApplication;
 
+
     @Autowired
     private ResidentRepository residentRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     ResidentService(SolartrackBackendApplication solartrackBackendApplication) {
         this.solartrackBackendApplication = solartrackBackendApplication;
@@ -22,6 +27,10 @@ public class ResidentService {
 
  // 1. Naya Resident add karna (Create)
     public Resident registerResident(Resident resident) {
+         String encryptedPassword = passwordEncoder.encode(resident.getPassword());
+        resident.setPassword(encryptedPassword);
+        
+        // 2. Save the resident with the hashed password
         return residentRepository.save(resident);
     }
     
@@ -52,15 +61,15 @@ public class ResidentService {
     }
     
 // 5. Login Resident
-    public Resident LoginResident(Long contactId,String password) {
+    public Resident LoginResident(Long contactId,String rawPassword) {
     	Resident resident = residentRepository.findByContactId(contactId)
                 .orElseThrow(() -> new RuntimeException("User nahi mila!"));   
     	
-    	if(resident.getPassword().equals(password)) {
-    		return resident;
-    	}else {
-    		throw new RuntimeException("Wrong Credentials");
-    	}
+    	if (passwordEncoder.matches(rawPassword, resident.getPassword())) {
+            return resident; 
+        } else {
+            throw new RuntimeException("Invalid Password");
+        }
     }
     
 }
